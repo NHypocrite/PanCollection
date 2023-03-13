@@ -63,7 +63,9 @@ Then,
   
 	__cfg.eval__ = False, 
   
-	__cfg.workflow__ = [('train', 50), ('val', 1)], __cfg.dataset__ = {'train': 'wv3', 'val': 'wv3_multiExm.h5'}
+	__cfg.workflow__ = [('train', 50), ('val', 1)], 
+	
+	__cfg.dataset__ = {'train': 'wv3', 'val': 'wv3_multiExm.h5'}
 	
 * A test example:
 

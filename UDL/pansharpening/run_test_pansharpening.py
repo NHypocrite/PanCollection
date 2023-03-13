@@ -8,3 +8,8 @@ if __name__ == '__main__':
     cfg.dataset = {'train': 'wv3', 'val': 'wv3_multiExm.h5'} #'wv3_OrigScale_multiExm1.h5'
     print(TaskDispatcher._task.keys())
     main(cfg)
+
+
+    # A test example:
+    # __cfg.eval__ = True
+    # or __cfg.workflow__ = [('val', 1)]
