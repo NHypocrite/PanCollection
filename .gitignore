@@ -160,3 +160,8 @@ UDL/bak/
 /models/MUCNN/*
 /models/GPPNN/*
 /models/DCFNet/Weights/*
+Datasets/pansharpening
+desktop.ini
+mytest.py
+UDL/results
+UDL/tests
