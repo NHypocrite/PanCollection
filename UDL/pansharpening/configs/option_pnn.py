@@ -5,6 +5,8 @@ import os
 
 class parser_args(TaskDispatcher, name='PNN'):
     def __init__(self, cfg=None):
+        super(parser_args, self).__init__()
+
         if cfg is None:
             from UDL.Basis.option import panshaprening_cfg
             cfg = panshaprening_cfg()
@@ -36,7 +38,7 @@ class parser_args(TaskDispatcher, name='PNN'):
         # * Model and Dataset
         parser.add_argument('--arch', '-a', metavar='ARCH', default='PNN', type=str,
                             choices=['PanNet', 'DiCNN', 'PNN', 'FusionNet'])
-        parser.add_argument('--dataset', default={'train': 'wv3', 'val': 'wv3_multiExm1.h5'}, type=str,
+        parser.add_argument('--dataset', default={'train': 'wv3', 'test': 'wv3_multiExm1.h5'}, type=str,
                             choices=[None, 'wv2', 'wv3', 'wv4', 'qb', 'gf',
                                      'wv3_OrigScale_multiExm1.h5', 'wv3_multiExm1.h5'],
                             help="performing evalution for patch2entire")
@@ -49,4 +51,5 @@ class parser_args(TaskDispatcher, name='PNN'):
         cfg.workflow = [('train', 1)]
         cfg.img_range = 2047.0
         print(cfg.pretty_text)
-        self._cfg_dict = cfg
+
+        self.merge_from_dict(cfg)

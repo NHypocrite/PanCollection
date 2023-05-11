@@ -89,6 +89,8 @@ class panshaprening_cfg(TaskDispatcher, name='pansharpening'):
 
 
     def __init__(self, cfg=None, arch=None):
+        super(panshaprening_cfg, self).__init__()
+
         import UDL.pansharpening.configs
         import UDL.pansharpening.models
 
@@ -113,7 +115,7 @@ class panshaprening_cfg(TaskDispatcher, name='pansharpening'):
         warnings.warn(warning)
         if arch is not None:
             cfg = self.new(cfg=cfg, arch=cfg.arch)
-        self._cfg_dict = cfg
+        self.merge_from_dict(cfg)
 
 def nni_cfg(args):
     if args.mode == 'nni':
@@ -125,6 +127,8 @@ def nni_cfg(args):
 
 class get_cfg(TaskDispatcher, name='entrypoint'):
     def __init__(self, task=None, arch=None):
+        super(get_cfg, self).__init__()
+
         args = common_cfg()
         # args.mode = 'nni'
         if arch is not None:
@@ -144,9 +148,9 @@ class get_cfg(TaskDispatcher, name='entrypoint'):
                              f"one of {super()._task.keys()} in TaskDispatcher")
         # cfg.setdefault('workflow', [])
         cfg = data_cfg(cfg)
-        print(cfg.pretty_text)
+        # print(cfg.pretty_text)
 
-        self._cfg_dict = cfg
+        self.merge_from_dict(cfg)
 
 
 def data_cfg(cfg):
