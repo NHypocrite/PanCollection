@@ -1,5 +1,5 @@
 # GPL License
-# Copyright (C) 2021 , UESTC
+# Copyright (C) UESTC
 # All Rights Reserved 
 #
 # @Time    : 2022/4/25 0:17

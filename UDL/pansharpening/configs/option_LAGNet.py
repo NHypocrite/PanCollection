@@ -5,6 +5,7 @@ import os
 
 class parser_args(TaskDispatcher, name='LAGNet'):
     def __init__(self, cfg=None):
+        super(parser_args, self).__init__()
 
         if cfg is None:
             from UDL.Basis.option import panshaprening_cfg
@@ -36,7 +37,7 @@ class parser_args(TaskDispatcher, name='LAGNet'):
                             help='path to latest checkpoint (default: none)')
         ##
         parser.add_argument('--arch', '-a', metavar='ARCH', default='LAGNet', type=str)
-        parser.add_argument('--dataset', default={'train': 'wv3', 'val': 'wv3_multiExm1.h5'}, type=str,
+        parser.add_argument('--dataset', default={'train': 'wv3', 'test': 'wv3_multiExm1.h5'}, type=str,
                             choices=[None, 'wv2', 'wv3', 'wv4', 'qb', 'gf',
                                      'wv2_hp', ..., 'wv3_OrigScale_multiExm1.h5', 'wv3_multiExm1.h5'],
                             help="performing evalution for patch2entire")
@@ -54,4 +55,4 @@ class parser_args(TaskDispatcher, name='LAGNet'):
         # cfg.config = f"{script_path}/configs/hook_configs.py"
 
 
-        self._cfg_dict = cfg
+        self.merge_from_dict(cfg)

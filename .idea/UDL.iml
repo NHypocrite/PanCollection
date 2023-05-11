@@ -2,14 +2,19 @@
 <module type="PYTHON_MODULE" version="4">
   <component name="NewModuleRootManager">
     <content url="file://$MODULE_DIR$" />
+      <sourceFolder url="file://$MODULE_DIR$/UDL/Basis/auxiliary" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/UDL/mmcv" isTestSource="false" />
+    </content>
+    <!-- <orderEntry type="jdk" jdkName="Python 3.7 (latest)" jdkType="Python SDK" /> -->
     <orderEntry type="jdk" jdkName="D:\anaconda3\envs\pytorch_1" jdkType="Python SDK" />
+
     <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+  <component name="PackageRequirementsSettings">
+    <option name="requirementsPath" value="" />
   </component>
   <component name="PyDocumentationSettings">
     <option name="format" value="GOOGLE" />
     <option name="myDocStringFormat" value="Google" />
-  </component>
-  <component name="TestRunnerService">
-    <option name="PROJECT_TEST_RUNNER" value="pytest" />
   </component>
 </module>

@@ -5,6 +5,7 @@ import os
 
 class parser_args(TaskDispatcher, name='PanNet'):
     def __init__(self, cfg=None):
+        super(parser_args, self).__init__()
 
         if cfg is None:
             from UDL.Basis.option import panshaprening_cfg
@@ -40,7 +41,7 @@ class parser_args(TaskDispatcher, name='PanNet'):
         # * Model and Dataset
         parser.add_argument('--arch', '-a', metavar='ARCH', default='PanNet', type=str,
                             choices=['PanNet', 'DiCNN', 'PNN', 'FusionNet'])
-        parser.add_argument('--dataset', default={'train': 'wv3', 'val': 'wv3_multiExm1_hp.h5'}, type=str,
+        parser.add_argument('--dataset', default={'train': 'wv3', 'test': 'wv3_multiExm1_hp.h5'}, type=str,
                             choices=[None, 'wv2', 'wv3', 'wv4', 'qb', 'gf',
                                      'wv2_hp', ...,
                                      'wv3_OrigScale_multiExm_hp.h5', 'wv3_multiExm1_hp.h5'],
@@ -58,4 +59,5 @@ class parser_args(TaskDispatcher, name='PanNet'):
         cfg.reg = True
         cfg.workflow = [('train', 1)]
         print(cfg.pretty_text)
-        self._cfg_dict = cfg
+
+        self.merge_from_dict(cfg)
